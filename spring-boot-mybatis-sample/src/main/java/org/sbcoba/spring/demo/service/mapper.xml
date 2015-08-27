@@ -1,0 +1,8 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.sbcoba.spring.demo.service.MemberXmlMapper">
+	<select id="findAll" resultType="org.sbcoba.spring.demo.service.Member">
+		SELECT id, name, phone FROM MEMBER where name = 'xml'
+	</select>
+</mapper>
+
