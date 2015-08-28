@@ -1,0 +1,11 @@
+spring:
+  h2:
+    console: 
+      path: /console
+      enabled: true
+      
+logging:
+  level:
+    org.springframework.boot: DEBUG
+    sample.springboot.mybatis: DEBUG
+  
