@@ -4,7 +4,7 @@
 - Spring Boot 1.3.0.M4 기준
 
 ## 소개
-- Spring Boot Project 에서 기본적으로 MyBatis 지원 프로젝트가 존재하지 만들게되었습니다.
+- Spring Boot Project 에서 기본적으로 MyBatis 지원 프로젝트가 존재하지 않아서 만들게되었습니다.
 
 ## 실행조건
 - JDK 1.6 이상 환경
