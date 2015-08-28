@@ -8,7 +8,7 @@
 
 ## 실행조건
 - JDK 1.6 이상 환경
-- Maven 설치 (추후 Grand 지원 예정)
+- Maven 설치 (추후 Gradle 지원 예정)
 - Spring Boot 개발 환경
 
 ## 소스 내려받기
@@ -19,11 +19,13 @@ $ git clone https://github.com/sbcoba/spring-boot-mybatis
 ## 샘플 실행
 ```sh
 $ cd spring-boot-mybatis
-$ mvn install
+$ mvn clean install
 # 샘플 실행
-$ mvn -pl spring-boot-mybatis-sample spring-boot:run
 $ mvn -pl spring-boot-mybatis-sample-default spring-boot:run
+$ mvn -pl spring-boot-mybatis-sample-simple spring-boot:run
 $ mvn -pl spring-boot-mybatis-sample-xml spring-boot:run
+$ mvn -pl spring-boot-mybatis-sample-hybrid spring-boot:run
+$ mvn -pl spring-boot-mybatis-sample-groovy spring-boot:run
 ```
 
 ## Maven Dependency 설정
