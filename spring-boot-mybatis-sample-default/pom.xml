@@ -9,9 +9,9 @@
   </parent>
 
   <artifactId>spring-boot-mybatis-sample-default</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
-  <name>spring-boot-mybatis-sample</name>
+  <name>spring-boot-mybatis-sample-default</name>
   <description>Spring Boot MyBatis sample</description>
 
   <dependencies>
