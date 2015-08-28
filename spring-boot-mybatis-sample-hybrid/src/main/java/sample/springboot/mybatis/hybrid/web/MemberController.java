@@ -1,13 +1,14 @@
-package org.sbcoba.spring.demo.web;
+package sample.springboot.mybatis.hybrid.web;
 
 import java.util.List;
 
-import org.sbcoba.spring.demo.service.Member;
-import org.sbcoba.spring.demo.service.MemberAnnotationMapper;
-import org.sbcoba.spring.demo.service.MemberXmlMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import sample.springboot.mybatis.hybrid.service.Member;
+import sample.springboot.mybatis.hybrid.service.MemberAnnotationMapper;
+import sample.springboot.mybatis.hybrid.service.MemberXmlMapper;
 
 @RestController
 public class MemberController {

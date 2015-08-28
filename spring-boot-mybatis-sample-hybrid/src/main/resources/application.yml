@@ -3,19 +3,19 @@ spring:
 # default value
 #    annotationClass: org.springframework.boot.mybatis.autoconfigure.Mapper
 #    configLocation: "classpath:mybatis-configuration.xml"
-    mapperLocations: "classpath:**/mapper.xml"
+    mapper-locations: "classpath*:**/mapper.xml"
     
 # If the 'spring.mybatis.configLocation' property is used when the 'spring.mybatis.configurationProperties' property is ignored.
-    configurationProperties:
+    configuration-properties:
       aggressiveLazyLoading: false
       lazyLoadingEnabled: true
       lazyLoadTriggerMethods: ""
       mapUnderscoreToCamelCase: true
     
-#  h2:
-#    console: 
-#      path: /console
-#      enabled: true
+  h2:
+    console: 
+      path: /console
+      enabled: true
       
 logging:
   level:

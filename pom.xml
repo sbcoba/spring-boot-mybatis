@@ -22,10 +22,10 @@
 
   <modules>
     <module>spring-boot-mybatis</module>
-    <module>spring-boot-mybatis-sample</module>
-    <module>spring-boot-mybatis-sample-simple</module>
     <module>spring-boot-mybatis-sample-default</module>
+    <module>spring-boot-mybatis-sample-simple</module>
     <module>spring-boot-mybatis-sample-xml</module>
+    <module>spring-boot-mybatis-sample-hybrid</module>
     <module>spring-boot-mybatis-sample-groovy</module>
   </modules>
 

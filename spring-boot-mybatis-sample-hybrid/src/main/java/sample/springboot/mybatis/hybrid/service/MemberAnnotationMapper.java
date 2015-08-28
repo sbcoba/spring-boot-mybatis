@@ -1,4 +1,4 @@
-package org.sbcoba.spring.demo.service;
+package sample.springboot.mybatis.hybrid.service;
 
 import java.util.List;
 
