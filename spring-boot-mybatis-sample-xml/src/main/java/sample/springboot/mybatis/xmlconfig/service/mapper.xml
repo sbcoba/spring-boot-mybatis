@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.springboot.mybatis.xmlconfig.service.MemberMapper">
+
+	<select id="findAll" resultType="sample.springboot.mybatis.xmlconfig.service.Member">
+		SELECT ID, NAME, PHONE FROM MEMBER
+	</select>
+  
+	<select id="findById" resultType="sample.springboot.mybatis.xmlconfig.service.Member">
+		SELECT ID, NAME, PHONE FROM MEMBER WHERE ID = #{id}
+	</select>
+  
+</mapper>
+
