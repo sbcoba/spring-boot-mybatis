@@ -2,6 +2,8 @@ package org.springframework.boot.mybatis.autoconfigure;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -10,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScannerRegistrar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +27,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.util.StringUtils;
 
 @EnableConfigurationProperties
-@ConditionalOnBean(DataSource.class)
+@ConditionalOnBean({DataSource.class, MapperScannerRegistrar.class})
 @ConditionalOnProperty(prefix = "spring.mybatis", name = "enabled", havingValue = "true", matchIfMissing = true)
 @Import(MyBatisMapperScannerRegistrar.class)
 @Configuration
@@ -32,7 +35,7 @@ public class MyBatisAutoConfiguration {
 	private static final Logger log = LoggerFactory.getLogger(MyBatisAutoConfiguration.class);
 	
     @Autowired(required = false)
-    private MyBatisConfigurer myBatisConfigurer;
+    private List<MyBatisConfigurer> myBatisConfigurers;
     
     @Autowired
     private MyBatisProperties myBatisProperties;
@@ -72,33 +75,21 @@ public class MyBatisAutoConfiguration {
 	        	factoryBean.setTypeAliasesPackage(typeAliasesPackage);
 	        }
         }
-        factoryBean.setPlugins(getPlugins());
-        factoryBean.setTypeHandlers(getTypeHandlers());
+        
+		if (myBatisConfigurers != null) {
+			List<TypeHandler<?>> typeHandlers = new ArrayList<TypeHandler<?>>();
+			List<Interceptor> interceptors = new ArrayList<Interceptor>();
+			for (MyBatisConfigurer myBatisConfigurer : myBatisConfigurers) {
+				myBatisConfigurer.addTypeHandlers(typeHandlers);
+				myBatisConfigurer.addPlugins(interceptors);
+			}
+			factoryBean.setTypeHandlers(typeHandlers.toArray(new TypeHandler[]{}));
+			factoryBean.setPlugins(interceptors.toArray(new Interceptor[]{}));
+		}
         
         factoryBean.setConfigurationProperties(myBatisProperties.getConfigurationProperties());
         return factoryBean;
     }
-
-	private TypeHandler<?>[] getTypeHandlers() {
-		if (myBatisConfigurer != null) {
-			TypeHandler<?>[] typeHandlers = myBatisConfigurer.getTypeHandlers();
-			if (typeHandlers != null) {
-				return typeHandlers;
-			}
-		}
-		TypeHandler<?>[] emptyTypeHandlers = new TypeHandler<?>[]{};
-		return emptyTypeHandlers;
-	}
-
-	public Interceptor[] getPlugins() {
-		if (myBatisConfigurer != null) {
-			Interceptor[] interceptors = myBatisConfigurer.getPlugins();
-			if (interceptors != null) {
-				return interceptors;
-			}
-		}
-		return new Interceptor[]{};
-	}
 
 	@ConditionalOnMissingBean
     @Bean(destroyMethod="clearCache")

@@ -1,10 +1,12 @@
 package org.springframework.boot.mybatis.autoconfigure;
 
+import java.util.List;
+
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.type.TypeHandler;
 
 public interface MyBatisConfigurer {
-	Interceptor[] getPlugins();
+	void addPlugins(List<Interceptor> interceptors);
 
-	TypeHandler<?>[] getTypeHandlers();
+	void addTypeHandlers(List<TypeHandler<?>> typeHandlers);
 }
