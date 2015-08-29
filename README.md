@@ -20,9 +20,10 @@ $ git clone https://github.com/sbcoba/spring-boot-mybatis
 
 ## 샘플 실행
 ```sh
-$ cd spring-boot-mybatis
+$ cd spring-boot-mybatis/spring-boot-mybatis
 $ mvn clean install
 # 샘플 실행
+$ cd ../spring-boot-mybatis-sample
 $ mvn -pl spring-boot-mybatis-sample-default spring-boot:run
 $ mvn -pl spring-boot-mybatis-sample-simple spring-boot:run
 $ mvn -pl spring-boot-mybatis-sample-xml spring-boot:run
