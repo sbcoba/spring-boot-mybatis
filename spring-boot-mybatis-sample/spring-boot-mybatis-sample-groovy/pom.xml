@@ -4,15 +4,20 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot.mybatis</groupId>
-    <artifactId>spring-boot-mybatis-parent</artifactId>
+    <artifactId>spring-boot-mybatis-sample</artifactId>
     <version>1.3.0.M4</version>
+    <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>spring-boot-mybatis-sample-default</artifactId>
+  <artifactId>spring-boot-mybatis-sample-groovy</artifactId>
   <packaging>war</packaging>
 
-  <name>spring-boot-mybatis-sample-default</name>
+  <name>spring-boot-mybatis-sample-groovy</name>
   <description>Spring Boot MyBatis sample</description>
+
+  <properties>
+    <main.basedir>${basedir}/../..</main.basedir>
+  </properties>  
 
   <dependencies>
     <dependency>
@@ -32,6 +37,11 @@
     </dependency>
 
     <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
@@ -39,6 +49,19 @@
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.java</include>
+          <include>**/*.groovy</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -50,6 +73,28 @@
         <configuration>
           <useSystemClassLoader>false</useSystemClassLoader>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerId>groovy-eclipse-compiler</compilerId>
+          <fork>true</fork>
+          <showWarnings>false</showWarnings>
+          <showDeprecation>false</showDeprecation>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>2.9.1-01</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>2.3.7-01</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>

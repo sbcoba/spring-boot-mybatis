@@ -4,15 +4,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot.mybatis</groupId>
-    <artifactId>spring-boot-mybatis-parent</artifactId>
+    <artifactId>spring-boot-mybatis-sample</artifactId>
     <version>1.3.0.M4</version>
+    <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>spring-boot-mybatis-sample-groovy</artifactId>
+  <artifactId>spring-boot-mybatis-sample-xml</artifactId>
   <packaging>war</packaging>
 
-  <name>spring-boot-mybatis-sample-groovy</name>
-  <description>Spring Boot MyBatis sample</description>
+  <name>spring-boot-mybatis-sample-xml</name>
+  <description>Spring Boot MyBatis xml sample</description>
 
   <dependencies>
     <dependency>
@@ -32,11 +33,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all</artifactId>
-    </dependency>
-
-    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
@@ -45,18 +41,17 @@
 
   <build>
     <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.java</include>
-          <include>**/*.groovy</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-    </resources>
-
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+                <include>**/*.xml</include>
+            </includes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>        
+    </resources>  
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -68,28 +63,6 @@
         <configuration>
           <useSystemClassLoader>false</useSystemClassLoader>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <compilerId>groovy-eclipse-compiler</compilerId>
-          <fork>true</fork>
-          <showWarnings>false</showWarnings>
-          <showDeprecation>false</showDeprecation>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-eclipse-compiler</artifactId>
-            <version>2.9.1-01</version>
-          </dependency>
-          <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-eclipse-batch</artifactId>
-            <version>2.3.7-01</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>
