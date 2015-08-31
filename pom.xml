@@ -46,6 +46,7 @@
 			<modules>
 				<module>spring-boot-mybatis-parent</module>
 				<module>spring-boot-mybatis</module>
+				<module>spring-boot-mybatis-sample</module>
 			</modules>
 		</profile>
 	</profiles>
