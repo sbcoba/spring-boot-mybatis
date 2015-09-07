@@ -1,7 +1,7 @@
 # Spring Boot MyBatis 
 
 ## 버전
-- Spring Boot 1.3.0.M4 기준
+- Spring Boot 1.3.0.M5 기준
 
 ## 소개
 - Spring Boot Project 에서 기본적으로 MyBatis 지원되지 않기 때문에 만듦 
@@ -9,7 +9,7 @@
 - 기존의 xml 설정없이 모든 기능을 확장할 수 있도록 구현
 
 ## 실행조건
-- JDK 1.6 이상 환경
+- JDK 1.6 이상 환경 ( JDK 1.7 이상 추천 )
 - Maven 설치 (추후 Gradle 지원 예정)
 - Spring Boot 개발 환경
 
