@@ -20,7 +20,7 @@ public class MyBatisProperties {
 	private Class<? extends Object> markerInterface;
 	private Class<? extends Annotation> annotationClass = Mapper.class;
 	
-	private Resource configLocation = new ClassPathResource("classpath:mybatis-configuration.xml");
+	private Resource configLocation = new ClassPathResource("mybatis-configuration.xml");
 	private String typeAliasesPackage;
 	private Resource[] mapperLocations;
 	
