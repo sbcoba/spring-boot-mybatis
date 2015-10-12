@@ -10,6 +10,7 @@
 
   <groupId>org.springframework.boot.mybatis</groupId>
   <artifactId>spring-boot-mybatis-parent</artifactId>
+  <version>1.3.0.BUILD-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>spring-boot-mybatis-parent</name>
 

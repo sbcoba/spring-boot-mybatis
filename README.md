@@ -36,7 +36,7 @@ $ mvn -pl spring-boot-mybatis-sample-groovy spring-boot:run
 <dependency>
   <groupId>org.springframework.boot.mybatis</groupId>
   <artifactId>spring-boot-mybatis</artifactId>
-  <version>1.3.0.M5</version>
+  <version>1.3.0.BUILD-SNAPSHOT</version>
 </dependency>
 ```
 
