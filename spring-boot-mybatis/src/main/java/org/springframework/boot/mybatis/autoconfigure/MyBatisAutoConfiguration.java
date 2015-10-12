@@ -49,7 +49,7 @@ public class MyBatisAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) throws IOException {
-        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryUpdateConfigurationBean();
         factoryBean.setDataSource(dataSource);
         {
 	        Resource configLocation = myBatisProperties.getConfigLocation();
