@@ -2,7 +2,7 @@ spring:
   mybatis:
 # default value
 #    annotationClass: org.springframework.boot.mybatis.autoconfigure.Mapper
-#    configLocation: "classpath:mybatis-configuration.xml"
+#    configLocation: "mybatis-configuration.xml"
     mapper-locations: "classpath*:**/mapper.xml"
     
 # If the 'spring.mybatis.configLocation' property is used when the 'spring.mybatis.configurationProperties' property is ignored.
